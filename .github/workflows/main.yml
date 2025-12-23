@@ -13,6 +13,9 @@ jobs:
         with:
           node-version: '20'
       - run: npm install
+      - run: |
+          mkdir -p data
+          echo "{}" > data/device_auths.json
       - run: node claimer.js
         env:
           EMAIL: ${{ secrets.EMAIL }}
